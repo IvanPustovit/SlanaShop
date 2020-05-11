@@ -1,0 +1,14 @@
+.view-item {
+  font-family: Georgia;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 20px;
+  text-align: start;
+  color: rgb(14, 4, 70);
+}
+
+.viewed {
+  /* background-color: rgba(64, 201, 193, 0.74); */
+  border-radius: 30%;
+}

@@ -1,0 +1,28 @@
+.foto-card {
+  height: 300px;
+}
+.card-list_item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  grid-gap: 5px;
+}
+
+.button-next {
+  color: blue;
+
+  background-color: white;
+  color: black;
+  border: 2px solid rgb(25, 10, 94);
+  padding: 15px 32px;
+  border-radius: 5%;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button-next:hover {
+  background-color: rgb(25, 10, 94); /* Green */
+  color: white;
+}

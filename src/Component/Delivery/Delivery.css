@@ -1,0 +1,14 @@
+.delivery {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 2fr;
+  padding-top: 20px;
+  font-size: 20px;
+  background-color: rgb(11, 15, 15);
+  opacity: 0.5;
+  color: rgb(200, 196, 243);
+}
+
+.delivery p {
+  text-align: left;
+}

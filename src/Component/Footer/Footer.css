@@ -1,0 +1,12 @@
+.footer-info {
+  /* width: 100vh; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.footer {
+  background-color: #765e5e;
+
+  /* width: 100vh; */
+}

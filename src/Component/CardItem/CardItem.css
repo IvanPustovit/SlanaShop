@@ -1,0 +1,16 @@
+.card a {
+  text-decoration: none;
+}
+
+.card-info {
+  font-size: 20px;
+  color: #000;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.card-price {
+  color: rgb(42, 75, 165);
+  font-size: 30px;
+  font-weight: 900;
+}

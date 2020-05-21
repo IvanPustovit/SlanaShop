@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "decc302368047f2796f4c2733dcfd112",
+    "revision": "3fa399303f4722c453c6d215c3ccb8b3",
     "url": "/SlanaShop/index.html"
   },
   {
-    "revision": "c152bb1dc9418f569ea4",
+    "revision": "db92d6d94637ab26af83",
     "url": "/SlanaShop/static/css/2.4f268fc5.chunk.css"
   },
   {
-    "revision": "0826e407d4a5aa0ccd38",
+    "revision": "90602b2d2c62a8bb5f36",
     "url": "/SlanaShop/static/css/main.5a702a0a.chunk.css"
   },
   {
-    "revision": "c152bb1dc9418f569ea4",
-    "url": "/SlanaShop/static/js/2.286f0755.chunk.js"
+    "revision": "db92d6d94637ab26af83",
+    "url": "/SlanaShop/static/js/2.1c8e84fb.chunk.js"
   },
   {
     "revision": "5e9b6f5c16b720e8a86875f97734673e",
-    "url": "/SlanaShop/static/js/2.286f0755.chunk.js.LICENSE.txt"
+    "url": "/SlanaShop/static/js/2.1c8e84fb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "0826e407d4a5aa0ccd38",
-    "url": "/SlanaShop/static/js/main.a7407773.chunk.js"
+    "revision": "90602b2d2c62a8bb5f36",
+    "url": "/SlanaShop/static/js/main.3147c28e.chunk.js"
   },
   {
     "revision": "7c19556f0f51da400a86",

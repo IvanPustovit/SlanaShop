@@ -3,9 +3,9 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <section class="footer">
-      <footer class="container footer-info">
-        <div class="">
+    <section className="footer" id="Contact">
+      <footer className="container footer-info">
+        <div className="">
           <p>Контакти:</p>
           <p>info</p>
         </div>

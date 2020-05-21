@@ -1,14 +1,45 @@
 import React, { useState } from "react";
 import "./CardItem.css";
+import { NavLink } from "react-router-dom";
+import CardItemModal from "../CardIteamModal/CardItemModal";
 
-const CardItem = ({ key, img, alt, size }) => {
+const CardItem = (prod) => {
+  const [modal, setModal] = useState(false);
+
+  // console.log(prod);
+
+  const toggleModal = (e) => {
+    setModal(!modal);
+    // console.log(e.target);
+  };
+  const closeModal = (e) => {
+    // if (e.target.nodeName === "DIV") {
+    //   return;
+    // }
+    setModal(!modal);
+  };
+
+  const closeModalKey = () => {
+    setModal(!modal);
+  };
+  const { img, alt, name, price, category } = prod;
+
   return (
     <li className="card">
-      <a href={img}>
-        <img src={img} alt={alt} className="foto-card" />
-        <p className="card-info">Футболка для хлопчика "Козак"</p>
-        <p className="card-price">200.00 грн</p>
-      </a>
+      {modal && (
+        <CardItemModal
+          product={prod}
+          closeModal={closeModal}
+          closeModalKey={closeModalKey}
+        />
+      )}
+      {/* <NavLink to="" > */}
+      <img src={img} alt={alt} className="foto-card" onClick={toggleModal} />
+      <p className="card-info">
+        Футболка {category} "{name}"
+      </p>
+      <p className="card-price">{price}.00 грн</p>
+      {/* </NavLink> */}
     </li>
   );
 };

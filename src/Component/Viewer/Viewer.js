@@ -13,17 +13,17 @@ const Viewer = () => {
     //   adaptiveHeight: true,
   };
   return (
-    <section class="viewed">
-      <div class="container">
+    <section className="viewed">
+      <div className="container">
         <p className="view-item">Ви дивились:</p>
-        <ul class="card-list_item card-list-slid">
+        <ul className="card-list_item card-list-slid">
           <Slider {...settings}>
             <li className="card">
               <a href="https://i.ibb.co/kgRjjx5/4.jpg">
                 <img
                   src="https://i.ibb.co/kgRjjx5/4.jpg"
                   alt=""
-                  class="foto-card"
+                  className="foto-card"
                 />
                 <p className="card-price">200 грн</p>
               </a>
@@ -33,7 +33,7 @@ const Viewer = () => {
                 <img
                   src="https://i.ibb.co/kgRjjx5/4.jpg"
                   alt=""
-                  class="foto-card"
+                  className="foto-card"
                 />
                 <p className="card-price">200 грн</p>
               </a>
@@ -43,7 +43,7 @@ const Viewer = () => {
                 <img
                   src="https://i.ibb.co/kgRjjx5/4.jpg"
                   alt=""
-                  class="foto-card"
+                  className="foto-card"
                 />
                 <p className="card-price">200 грн</p>
               </a>
@@ -53,7 +53,7 @@ const Viewer = () => {
                 <img
                   src="https://i.ibb.co/kgRjjx5/4.jpg"
                   alt=""
-                  class="foto-card"
+                  className="foto-card"
                 />
                 <p className="card-price">200 грн</p>
               </a>
@@ -63,7 +63,7 @@ const Viewer = () => {
                 <img
                   src="https://i.ibb.co/kgRjjx5/4.jpg"
                   alt=""
-                  class="foto-card"
+                  className="foto-card"
                 />
                 <p className="card-price">200 грн</p>
               </a>

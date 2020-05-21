@@ -1,0 +1,14 @@
+.cart-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+input {
+  font-size: 20px;
+  max-width: 70%;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

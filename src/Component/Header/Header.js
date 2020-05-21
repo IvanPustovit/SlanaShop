@@ -4,35 +4,50 @@ import Cart from "../Cart/Cart";
 import PhoneIcon from "@material-ui/icons/Phone";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import MailIcon from "@material-ui/icons/Mail";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = (props) => {
   const [logo, setLogo] = useState({
     src: "https://i.ibb.co/YQNpyLL/logo.png",
     alt: "logo",
   });
+
+  // console.log(window.location.pathname + window.location.hash);
   return (
-    <section class="navigation">
-      <div class="container">
+    <section className="navigation">
+      <div className="container">
         <header>
-          <nav class="navigation-list">
-            <ul class="navigation-page">
+          <nav className="navigation-list">
+            <ul className="navigation-page">
               <li>
-                <a href="#">Магазин</a>
+                <NavLink
+                  to="/#Shop"
+                  isActive={() =>
+                    window.location.pathname + window.location.hash === "/#Shop"
+                  }
+                >
+                  Магазин
+                </NavLink>
               </li>
               <li>
-                <a href="#">Доставка та оплата</a>
+                <NavLink to="/#Deliver">Доставка та оплата</NavLink>
               </li>
               <li>
-                <a href="https://imgbb.com/">
-                  <img src={logo.src} alt="logo" border="0" class="logo-img" />
-                </a>
+                <Link to="/">
+                  <img
+                    src={logo.src}
+                    alt="logo"
+                    border="0"
+                    className="logo-img"
+                  />
+                </Link>
               </li>
 
               <li>
-                <a href="#">Контакти</a>
+                <NavLink to="/#Contact">Контакти</NavLink>
               </li>
             </ul>
-            <ul class="navigation-icon">
+            <ul className="navigation-icon">
               <li>
                 <a href="#">
                   <PhoneIcon />
@@ -48,7 +63,9 @@ const Header = (props) => {
                   <FacebookIcon />
                 </a>
               </li>
-              <Cart />
+              <Link to="/cart">
+                <Cart />
+              </Link>
             </ul>
           </nav>
         </header>

@@ -13,17 +13,17 @@ const Sale = () => {
     //   adaptiveHeight: true,
   };
   return (
-    <section class="stock">
-      <div class="container">
+    <section className="stock">
+      <div className="container">
         <p className="view-item">Зменшена ціна:</p>
-        <ul class="card-list_item card-list-slid">
+        <ul className="card-list_item card-list-slid">
           <Slider {...settings}>
-            <li className="card">
+            {/* <li className="card">
               <a href="https://i.ibb.co/kgRjjx5/4.jpg">
                 <img
                   src="https://i.ibb.co/kgRjjx5/4.jpg"
                   alt=""
-                  class="foto-card"
+                  className="foto-card"
                 />
                 <p className="card-price">200 грн</p>
               </a>
@@ -33,7 +33,7 @@ const Sale = () => {
                 <img
                   src="https://i.ibb.co/kgRjjx5/4.jpg"
                   alt=""
-                  class="foto-card"
+                  className="foto-card"
                 />
                 <p className="card-price">200 грн</p>
               </a>
@@ -43,7 +43,7 @@ const Sale = () => {
                 <img
                   src="https://i.ibb.co/kgRjjx5/4.jpg"
                   alt=""
-                  class="foto-card"
+                  className="foto-card"
                 />
                 <p className="card-price">200 грн</p>
               </a>
@@ -53,31 +53,31 @@ const Sale = () => {
                 <img
                   src="https://i.ibb.co/kgRjjx5/4.jpg"
                   alt=""
-                  class="foto-card"
+                  className="foto-card"
                 />
                 <p className="card-price">200 грн</p>
               </a>
-            </li>
-            <li className="card">
-              <a href="https://i.ibb.co/kgRjjx5/4.jpg">
-                <img
-                  src="https://i.ibb.co/kgRjjx5/4.jpg"
-                  alt=""
-                  class="foto-card"
-                />
-                <p className="card-price">200 грн</p>
-              </a>
-            </li>
-            <li className="card">
-              <a href="https://i.ibb.co/kgRjjx5/4.jpg">
-                <img
-                  src="https://i.ibb.co/kgRjjx5/4.jpg"
-                  alt=""
-                  class="foto-card"
-                />
-                <p className="card-price">200 грн</p>
-              </a>
-            </li>
+            </li> */}
+            {/* <li className="card">
+            <a href="https://i.ibb.co/kgRjjx5/4.jpg">
+              <img
+                src="https://i.ibb.co/kgRjjx5/4.jpg"
+                alt=""
+                class="foto-card"
+              />
+              <p className="card-price">200 грн</p>
+            </a>
+          </li>
+          <li className="card">
+            <a href="https://i.ibb.co/kgRjjx5/4.jpg">
+              <img
+                src="https://i.ibb.co/kgRjjx5/4.jpg"
+                alt=""
+                class="foto-card"
+              />
+              <p className="card-price">200 грн</p>
+            </a>
+          </li> */}
           </Slider>
         </ul>
       </div>

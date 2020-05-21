@@ -1,0 +1,22 @@
+.amount {
+  display: inline-block;
+  width: 50px;
+}
+
+.card {
+  /* display: inline-block; */
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, 1fr); */
+  list-style: none;
+  border: solid 1px black;
+  padding-top: 5px;
+}
+
+.card-price {
+  margin: 0;
+}
+
+.cart-color {
+  display: inline;
+  margin-right: 10px;
+}

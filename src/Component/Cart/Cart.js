@@ -1,9 +1,11 @@
 import React from "react";
 import classes from "./Cart.module.css";
+import CartItem from "../CartList/CartList";
 
 const Cart = () => {
   const bag = [classes.Bag];
   const cart = [classes.Cart];
+
   if (true) {
     cart.push(classes["Cart-open"]);
   }
@@ -13,9 +15,15 @@ const Cart = () => {
   //   const totalCount = cartCollection.reduce((acc, el) => acc + el.amount, 0);
   return (
     // <div className={cart.join(" ")}>
-    <span className={bag.join(" ")} onClick="{toggleCart}">
-      <span className={classes.Quantity}>""</span>
-    </span>
+    <>
+      <span
+        className={bag.join(" ")}
+        // onClick="{toggleCart}"
+      >
+        <span className={classes.Quantity}>"1"</span>
+      </span>
+      {/* <CartItem /> */}
+    </>
     //   <div className={classes.Content}>
     //     <div className={classes.Container}>
     //       {/* {cartCollection.map((el, index) => (

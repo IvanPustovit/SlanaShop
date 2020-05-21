@@ -1,24 +1,19 @@
 import React from "react";
 import Header from "../Header/Header";
-import Slider from "../Slider/Slider";
-import Sort from "../Sort/Sort";
-import CardList from "../CardList/CardList";
-import Viewer from "../Viewer/Viewer";
-import Sale from "../Sale/Sale";
-import Delivery from "../Delivery/Delivery";
-import Footer from "../Footer/Footer";
+
+import CartList from "../CartList/CartList";
+// import CardItemModal from "../CardIteamModal/CardItemModal";
+import { Route } from "react-router-dom";
+// import { Switch } from "@material-ui/core";
+import Home from "../../Page/Home";
 
 const HomePage = () => {
   return (
     <div>
+      {/* <CardItemModal /> */}
       <Header />
-      <Slider />
-      <Sort />
-      <CardList />
-      <Viewer />
-      <Sale />
-      <Delivery />
-      <Footer />
+      <Route path="/" exact component={Home} />
+      <Route path="/cart" component={CartList} />
     </div>
   );
 };

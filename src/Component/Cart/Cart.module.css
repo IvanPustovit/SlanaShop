@@ -1,13 +1,16 @@
 .Cart {
-  position: fixed;
+  /* position: ; */
   top: 0;
-  right: -450px;
-  width: 450px;
+  /* right: -450px; */
+  /* width: 450px; */
   height: 100%;
   background-color: #1b1a20;
   box-sizing: border-box;
   -webkit-transition: right 0.2s;
   transition: right 0.2s;
+  z-index: 999999;
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr); */
 }
 
 .Cart-open {
@@ -46,14 +49,17 @@
 
 .Container {
   max-height: 540px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
+  /* display: block; */
+  max-width: 1168px;
+  margin: 0 auto;
 }
 
 .Footer {
   /* display: none; */
   box-sizing: border-box;
   padding: 5%;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   width: 100%;
   height: 200px;
@@ -91,7 +97,7 @@
   background-color: #0c0b10;
   text-align: center;
   padding: 15px 0;
-  margin-top: 40px;
+  margin-top: 20px;
   cursor: pointer;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
@@ -102,11 +108,14 @@
 }
 
 .Total {
-  display: flex;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
 }
 
 .Content {
   padding-top: 50px;
+
   /* display: none; */
 }

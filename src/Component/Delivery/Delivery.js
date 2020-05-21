@@ -3,8 +3,8 @@ import "./Delivery.css";
 
 const Delivery = () => {
   return (
-    <section class="info">
-      <div class="delivery container">
+    <section className="info" id="Deliver">
+      <div className="delivery container">
         <p>Оплата:</p>
         <p>
           Накладений платіж: Вартість послуги "Накладений платіж" складає 20грн.
@@ -16,7 +16,7 @@ const Delivery = () => {
           надішле Вам реквізити для оплати.
         </p>
       </div>
-      <div class="delivery container">
+      <div className="delivery container">
         <p>Доставка:</p>
         <p>
           Доставка до відділень «Нова Пошта» по всій Україні: Вартість доставки

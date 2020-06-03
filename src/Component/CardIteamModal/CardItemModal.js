@@ -1,75 +1,55 @@
 import React, { useState } from "react";
 import "./CardItemModal.css";
 import { useSelector, useDispatch } from "react-redux";
-import { inCartProduct, setColor } from "../../redux/slice";
+import { addToCart } from "../../module/action";
+// import { inCartProduct, setInCart } from "../../redux/slice";
 
 const CardItemModal = ({ product, closeModal }) => {
-  // const [amount, setAmount] = useState(0);
-  // const [disabled, setDisabled] = useState(false);
   const [colorProducts, setColorProducts] = useState("");
-  // const [sizeProduct, setSizeProduct] = useState("");
   const [inCartValue, setCartValue] = useState({});
 
-  const { img, alt, name, article, info, price, size, category } = product;
+  const {
+    img,
+    alt,
+    name,
+    article,
+    info,
+    price,
+    size,
+    category,
+    id,
+    amountInCart,
+    amount,
+  } = product;
 
-  const colorValue = useSelector(inCartProduct);
-  // console.log(colorValue);
   const dispatch = useDispatch();
-  const setColorValue = () => dispatch(setColor(inCartValue));
-  // const close = closeModal();
-
-  // const increment = () => {
-  //   setAmount(amount + 1);
-  // };
-  // const decrement = () => {
-  //   if (amount === 0) {
-  //     setDisabled(false);
-  //     return;
-  //   }
-  //   setAmount(amount - 1);
-  // };
+  const setCartItem = () => dispatch(addToCart(inCartValue));
+  console.log(inCartValue);
 
   const setColors = (e) => {
     const colors = e.target.value;
     setColorProducts(colors);
-    // setCartValue({
-    //   color: colors,
-    // });
-    console.dir(e.target.value);
   };
 
   const setSize = (e) => {
-    // const size = e.target.value;
     setCartValue({
       color: colorProducts,
       size: e.target.value,
-      // amount: amount,
-      name: name,
-      article: article,
-      img: img,
-      price: price,
+      amountInCart: 1,
+      name,
+      article,
+      img,
+      price,
       category,
+      id,
+      amount,
     });
-    // setSizeProduct(size);
   };
 
   const inCart = () => {
-    // setCartValue({
-    //   // color: colorProduct,
-    //   size: sizeProduct,
-    //   amount: amount,
-    //   name: name,
-    //   article: article,
-    //   img: img,
-    //   price: price,
-    // });
-    setColorValue();
-
-    // closeModal();
-    // console.log(inCartValue);
+    setCartItem();
   };
 
-  // console.log(inCartValue);
   return (
     <div className="overlay">
       <div className="modal">
@@ -96,6 +76,8 @@ const CardItemModal = ({ product, closeModal }) => {
                   className="color-made_select"
                   onClick={setColors}
                 >
+                  <option value="білий-україна"></option>
+
                   <option value="білий-україна">Білий</option>
                 </select>
                 <span value="Турція">Колір футболки (виробництво Турція) </span>
@@ -106,6 +88,7 @@ const CardItemModal = ({ product, closeModal }) => {
                   className="color-made_select"
                   onClick={setColors}
                 >
+                  <option className="bgr-white" value="білий-турція"></option>
                   <option className="bgr-white" value="білий-турція">
                     Білий
                   </option>
@@ -123,6 +106,8 @@ const CardItemModal = ({ product, closeModal }) => {
                   className="color-made_select"
                   onClick={setColors}
                 >
+                  <option value="білий-венгрія"></option>
+
                   <option value="білий-венгрія">Білий</option>
                   <option value="чорний-венгрія">Чорний</option>
                   <option value="жовтий-венгрія">Жовтий</option>

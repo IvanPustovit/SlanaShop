@@ -1,14 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CartItem.css";
 import { useSelector, useDispatch } from "react-redux";
-import { amount, plus, minus, inCartProduct } from "../../redux/slice";
+import {
+  amount,
+  plus,
+  minus,
+  inCartProduct,
+  PlusMinusItem,
+} from "../../redux/slice";
+import { plusAmountItem, minusAmountItem } from "../../module/action";
 
-const CartItem = (props) => {
-  const amountValue = useSelector(amount);
+const CartItem = ({
+  img,
+  name,
+  price,
+  color,
+  size,
+  category,
+  id,
+  // amountInCart,
+  index,
+}) => {
+  const [amount, setAmount] = useState(1);
+  const stateCart = useSelector((state) => state.inCart);
+
   const dispatch = useDispatch();
-  const down = () => dispatch(minus());
-  const up = () => dispatch(plus());
-  const { img, name, price, color, size, category } = props;
+
+  const up = (e) => {
+    const type = e.target.value;
+    switch (type) {
+      case "plus":
+        return dispatch(plusAmountItem(index));
+      case "minus":
+        return dispatch(minusAmountItem(index));
+
+      default:
+        return;
+    }
+  };
+  const amountItem = stateCart[index].amountInCart;
 
   return (
     <li className="card">
@@ -16,7 +46,7 @@ const CartItem = (props) => {
       <p className="card-info">
         Футболка {category} "{name}"
       </p>
-      <p className="card-price">{price}.00 грн</p>
+      <p className="card-price">{price * amountItem}.00 грн</p>
       <p className="cart-color">
         Колір: <span>{color}</span>
       </p>
@@ -25,11 +55,11 @@ const CartItem = (props) => {
       </p>
       <div>
         {/* <p className={classes.Price}>$ {(price * amount).toFixed(2)}</p> */}
-        <button className="{classes.Change}" onClick={down}>
+        <button className="{classes.Change}" onClick={up} value="minus">
           -
         </button>
-        <p className="amount">{amountValue}</p>
-        <button className="{classes.Change} " onClick={up}>
+        <p className="amount">{amountItem}</p>
+        <button className="{classes.Change} " onClick={up} value="plus">
           +
         </button>
       </div>

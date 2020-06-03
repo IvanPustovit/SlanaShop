@@ -6,16 +6,11 @@ import CardItemModal from "../CardIteamModal/CardItemModal";
 const CardItem = (prod) => {
   const [modal, setModal] = useState(false);
 
-  // console.log(prod);
-
   const toggleModal = (e) => {
     setModal(!modal);
-    // console.log(e.target);
   };
+
   const closeModal = (e) => {
-    // if (e.target.nodeName === "DIV") {
-    //   return;
-    // }
     setModal(!modal);
   };
 

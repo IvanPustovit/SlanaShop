@@ -2,13 +2,21 @@ import React from "react";
 import classes from "../Cart/Cart.module.css";
 import CartItem from "../CartItem/CartItem";
 import { useSelector, useDispatch } from "react-redux";
-import { inCartProduct } from "../../redux/slice";
+// import { inCartProduct } from "../../redux/slice";
 
 import "./CartList.css";
 
 const CartList = (props) => {
-  const cartArr = useSelector(inCartProduct);
-  console.log(props);
+  const cartArr = useSelector((state) => state.inCart);
+
+  const totalAmount = cartArr.reduce(function (sum, el) {
+    return sum + el.amountInCart;
+  }, 0);
+
+  const totalPrice = cartArr.reduce((sum, el) => {
+    return sum + el.amountInCart * el.price;
+  }, 0);
+
   const bag = [classes.Bag];
   const cart = [classes.Cart];
   return (
@@ -17,21 +25,17 @@ const CartList = (props) => {
     <div className={classes.Container}>
       <ul className="cart-list">
         {cartArr.length > 0 &&
-          cartArr.map((prod) => <CartItem {...prod} key={prod.article} />)}
+          cartArr.map((prod, index) => (
+            <CartItem {...prod} key={prod.id} index={index} />
+          ))}
       </ul>
-      {/* {cartCollection.map((el, index) => (
-            <CartItem
-              {...el}
-              deleteFromCart={deleteFromCart}
-              index={index}
-              editCartItem={editCartItem}
-              key={el.id}
-            />
-          ))} */}
+
       <div className={classes.Footer}>
         <div className={classes.Total}>
-          <p className={classes.Sub}>TOTAL</p>
-          <p className={classes["Total-amount"]}>$ total</p>
+          <p className={classes.Sub}>Всього: {totalAmount} шт до замовлення</p>
+          <p className={classes["Total-amount"]}>
+            Всього до оплати: {totalPrice},00 грн.
+          </p>
         </div>
         <div>
           <form action="" method="post">

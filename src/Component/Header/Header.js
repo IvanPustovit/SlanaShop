@@ -21,16 +21,16 @@ const Header = (props) => {
             <ul className="navigation-page">
               <li>
                 <NavLink
-                  to="/Shop"
+                  to="/#Shop"
                   isActive={() =>
-                    window.location.pathname + window.location.hash === "/Shop"
+                    window.location.pathname + window.location.hash === "/#Shop"
                   }
                 >
                   Магазин
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/Deliver">Доставка та оплата</NavLink>
+                <NavLink to="/#Deliver">Доставка та оплата</NavLink>
               </li>
               <li>
                 <Link to="/">
@@ -44,17 +44,17 @@ const Header = (props) => {
               </li>
 
               <li>
-                <NavLink to="/Contact">Контакти</NavLink>
+                <NavLink to="/#Contact">Контакти</NavLink>
               </li>
             </ul>
             <ul className="navigation-icon">
               <li>
-                <a href="#">
+                <a href="tel:">
                   <PhoneIcon />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="mailto:slanashop@slana.net.ua">
                   <MailIcon />
                 </a>
               </li>

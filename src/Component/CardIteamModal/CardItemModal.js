@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./CardItemModal.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../../module/action";
+import { addToCart, plusAmountItem } from "../../module/action";
 // import { inCartProduct, setInCart } from "../../redux/slice";
 
 const CardItemModal = ({ product, closeModal }) => {
   const [colorProducts, setColorProducts] = useState("");
   const [inCartValue, setCartValue] = useState({});
+
+  const cartArr = useSelector((state) => state.inCart);
 
   const {
     img,
@@ -18,13 +20,12 @@ const CardItemModal = ({ product, closeModal }) => {
     size,
     category,
     id,
-    amountInCart,
+
     amount,
   } = product;
 
   const dispatch = useDispatch();
   const setCartItem = () => dispatch(addToCart(inCartValue));
-  console.log(inCartValue);
 
   const setColors = (e) => {
     const colors = e.target.value;
@@ -46,8 +47,19 @@ const CardItemModal = ({ product, closeModal }) => {
     });
   };
 
-  const inCart = () => {
-    setCartItem();
+  const inCart = (color, size) => {
+    const item = cartArr.find((el) => el.color && el.size === color && size);
+    console.log(item);
+    if (item) {
+      const index = cartArr.indexOf(item);
+      dispatch(plusAmountItem(index));
+    } else {
+      setCartItem();
+    }
+  };
+
+  const st = () => {
+    inCart(inCartValue.color, inCartValue.size);
   };
 
   return (
@@ -139,17 +151,9 @@ const CardItemModal = ({ product, closeModal }) => {
                 ))}
               </select>
             </div>
-            {/* <span>Кількість</span>
 
-            <div className="modal-number">
-              <button onClick={decrement} disabled={disabled}>
-                -
-              </button>
-              <span>{amount}</span>
-              <button onClick={increment}>+</button>
-            </div> */}
             <div>
-              <button className="button-cart" onClick={inCart}>
+              <button className="button-cart" onClick={st}>
                 В КОШИК
               </button>
             </div>

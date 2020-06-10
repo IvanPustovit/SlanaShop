@@ -101,6 +101,7 @@
   cursor: pointer;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
+  grid-template-columns: 1fr;
 }
 
 .Buy-btn:hover {

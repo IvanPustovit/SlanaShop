@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../Cart/Cart.module.css";
 import CartItem from "../CartItem/CartItem";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,12 +7,24 @@ import { useSelector, useDispatch } from "react-redux";
 import "./CartList.css";
 
 const CartList = (props) => {
+  const [form, setForm] = useState([]);
   const cartArr = useSelector((state) => state.inCart);
 
   const totalAmount = cartArr.reduce(function (sum, el) {
     return sum + el.amountInCart;
   }, 0);
 
+  const inputHandler = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setForm({ ...form, [name]: value });
+  };
+
+  const submitTitle = (e) => {
+    e.preventDefault();
+
+    console.log([...cartArr, form]);
+  };
   const totalPrice = cartArr.reduce((sum, el) => {
     return sum + el.amountInCart * el.price;
   }, 0);
@@ -38,22 +50,34 @@ const CartList = (props) => {
           </p>
         </div>
         <div>
-          <form action="" method="post">
+          <form
+            // action="mailto:pustovit.for@gmail.com"
+            method="submit"
+            onSubmit={submitTitle}
+          >
             <input
               type="email"
               name="email"
               id="mail"
               placeholder="Your Email"
+              onChange={inputHandler}
             />
             <input
               type="tel"
               name="tel"
               id="phone"
+              onChange={inputHandler}
               placeholder="Your Phone number"
             />
+            <input
+              // onSubmit={submitTitle}
+              type="submit"
+              value="Замовити"
+              className={classes["Buy-btn"]}
+            />
+            {/* <div className={classes["Buy-btn"]}>Замовити</div> */}
           </form>
         </div>
-        <div className={classes["Buy-btn"]}>Замовити</div>
       </div>
     </div>
     //{" "}

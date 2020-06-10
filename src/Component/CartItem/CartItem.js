@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import "./CartItem.css";
 import { useSelector, useDispatch } from "react-redux";
+// import {
+//   amount,
+//   plus,
+//   minus,
+//   inCartProduct,
+//   PlusMinusItem,
+// } from "../../redux/slice";
 import {
-  amount,
-  plus,
-  minus,
-  inCartProduct,
-  PlusMinusItem,
-} from "../../redux/slice";
-import { plusAmountItem, minusAmountItem } from "../../module/action";
+  plusAmountItem,
+  minusAmountItem,
+  deleteToCart,
+} from "../../module/action";
 
 const CartItem = ({
   img,
@@ -32,13 +36,22 @@ const CartItem = ({
       case "plus":
         return dispatch(plusAmountItem(index));
       case "minus":
-        return dispatch(minusAmountItem(index));
+        if (stateCart[index].amountInCart === 1) {
+          dispatch(deleteToCart(index));
+        } else {
+          dispatch(minusAmountItem(index));
+        }
+        return;
 
       default:
         return;
     }
   };
   const amountItem = stateCart[index].amountInCart;
+
+  const deleteItem = () => {
+    dispatch(deleteToCart(index));
+  };
 
   return (
     <li className="card">
@@ -64,7 +77,9 @@ const CartItem = ({
         </button>
       </div>
       <div>
-        <button className="{classes.Change} ">видалити</button>
+        <button className="{classes.Change} " onClick={deleteItem}>
+          видалити
+        </button>
       </div>
     </li>
   );

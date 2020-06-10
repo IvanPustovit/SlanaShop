@@ -6,11 +6,13 @@ import {
   minusAmountItem,
   totalAmount,
   totalPrice,
+  deleteToCart,
 } from "./action";
 const initialStateShop = [];
 
 export const cartReducer = createReducer(initialStateShop, {
-  [addToCart]: (state, action) => [...state, action.payload],
+  [addToCart]: (state, { payload }) => [...state, payload],
+
   [plusAmountItem]: (state, { payload }) => {
     state[payload] = {
       ...state[payload],
@@ -24,6 +26,7 @@ export const cartReducer = createReducer(initialStateShop, {
         state[payload].amountInCart > 1 ? state[payload].amountInCart - 1 : 0,
     };
   },
-  //   [totalPrice]:(state)=>
-  //   [totalAmount]:
+  [deleteToCart]: (state, { payload }) => {
+    state.splice(payload, 1);
+  },
 });

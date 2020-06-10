@@ -18,7 +18,7 @@ const Viewer = () => {
         <p className="view-item">Ви дивились:</p>
         <ul className="card-list_item card-list-slid">
           <Slider {...settings}>
-            <li className="card">
+            {/* <li className="card">
               <a href="https://i.ibb.co/kgRjjx5/4.jpg">
                 <img
                   src="https://i.ibb.co/kgRjjx5/4.jpg"
@@ -27,47 +27,7 @@ const Viewer = () => {
                 />
                 <p className="card-price">200 грн</p>
               </a>
-            </li>
-            <li className="card">
-              <a href="https://i.ibb.co/kgRjjx5/4.jpg">
-                <img
-                  src="https://i.ibb.co/kgRjjx5/4.jpg"
-                  alt=""
-                  className="foto-card"
-                />
-                <p className="card-price">200 грн</p>
-              </a>
-            </li>
-            <li className="card">
-              <a href="https://i.ibb.co/kgRjjx5/4.jpg">
-                <img
-                  src="https://i.ibb.co/kgRjjx5/4.jpg"
-                  alt=""
-                  className="foto-card"
-                />
-                <p className="card-price">200 грн</p>
-              </a>
-            </li>
-            <li className="card">
-              <a href="https://i.ibb.co/kgRjjx5/4.jpg">
-                <img
-                  src="https://i.ibb.co/kgRjjx5/4.jpg"
-                  alt=""
-                  className="foto-card"
-                />
-                <p className="card-price">200 грн</p>
-              </a>
-            </li>
-            <li className="card">
-              <a href="https://i.ibb.co/kgRjjx5/4.jpg">
-                <img
-                  src="https://i.ibb.co/kgRjjx5/4.jpg"
-                  alt=""
-                  className="foto-card"
-                />
-                <p className="card-price">200 грн</p>
-              </a>
-            </li>
+            </li> */}
           </Slider>
         </ul>
       </div>

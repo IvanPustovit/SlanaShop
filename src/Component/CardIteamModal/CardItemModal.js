@@ -48,7 +48,7 @@ const CardItemModal = ({ product, closeModal }) => {
   };
 
   const inCart = (color, size) => {
-    const item = cartArr.find((el) => el.color && el.size === color && size);
+    const item = cartArr.find((el) => el.color === color && el.size === size);
     console.log(item);
     if (item) {
       const index = cartArr.indexOf(item);
@@ -74,7 +74,7 @@ const CardItemModal = ({ product, closeModal }) => {
             <img src={img} alt={alt} className="img-modal" />
           </div>
           <div className="info-item">
-            <h2 className="name-item">{name}</h2>
+            <h2 className="name-item">{name.toUpperCase()}</h2>
             <p className="info-item_article">{article}</p>
             <p className="info-item_info">{info}</p>
             <div className="color-item">

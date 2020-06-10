@@ -1,5 +1,6 @@
 .foto-card {
   height: 300px;
+  width: 230px;
 }
 .card-list_item {
   display: grid;

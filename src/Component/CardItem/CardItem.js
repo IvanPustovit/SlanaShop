@@ -30,9 +30,8 @@ const CardItem = (prod) => {
       )}
       {/* <NavLink to="" > */}
       <img src={img} alt={alt} className="foto-card" onClick={toggleModal} />
-      <p className="card-info">
-        Футболка {category} "{name}"
-      </p>
+      <p className="card-info">Футболка {category.toLowerCase()}</p>
+      <p className="card-info_name">"{name.toUpperCase()}"</p>
       <p className="card-price">{price}.00 грн</p>
       {/* </NavLink> */}
     </li>

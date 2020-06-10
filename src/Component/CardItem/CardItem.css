@@ -8,9 +8,19 @@
   margin: 0 auto;
   padding: 0;
 }
+.card-info_name {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+}
 
 .card-price {
   color: rgb(42, 75, 165);
   font-size: 30px;
   font-weight: 900;
 }
+
+/* .card {
+  width: 230px;
+} */

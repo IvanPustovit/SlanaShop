@@ -144,7 +144,7 @@ const CardItemModal = ({ product, closeModal }) => {
                 className="color-made_select"
                 onClick={setSize}
               >
-                {size.map((el) => (
+                {size.split(",").map((el) => (
                   <option value={el} key={el}>
                     {el}
                   </option>

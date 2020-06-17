@@ -20,17 +20,17 @@ const Header = (props) => {
           <nav className="navigation-list">
             <ul className="navigation-page">
               <li>
-                <NavLink
-                  to="/#Shop"
-                  isActive={() =>
-                    window.location.pathname + window.location.hash === "/#Shop"
-                  }
+                <a
+                  href="#Shop"
+                  // isActive={() =>
+                  //   window.location.pathname + window.location.hash === "/Shop"
+                  // }
                 >
                   Магазин
-                </NavLink>
+                </a>
               </li>
               <li>
-                <NavLink to="/#Deliver">Доставка та оплата</NavLink>
+                <a href="#Deliver">Доставка та оплата</a>
               </li>
               <li>
                 <Link to="/">
@@ -44,7 +44,7 @@ const Header = (props) => {
               </li>
 
               <li>
-                <NavLink to="/#Contact">Контакти</NavLink>
+                <a href="/#Contact">Контакти</a>
               </li>
             </ul>
             <ul className="navigation-icon">

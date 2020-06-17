@@ -1,22 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CardList.css";
 import CardItem from "../CardItem/CardItem";
-import product from "../../db/item.json";
+
+import { useSelector } from "react-redux";
 
 const CardList = () => {
-  // const [modalActive, setModalActive] = useState(true);
-  const [cardsArr, setCardsArr] = useState(product);
+  const listShop = useSelector((state) => state.listShop);
 
   return (
     <section className="card-list" id="Shop">
       <main className="container">
         <ul className="card-list_item">
-          {cardsArr.map((prod) => (
-            <CardItem
-              {...prod}
-              key={prod.id}
-              // key={el.id} img={el.img} alt={el.alt} size={el.size}
-            />
+          {listShop.map((prod) => (
+            <CardItem {...prod} key={prod.id} />
           ))}
         </ul>
         <button className="button-next">Показати ще товари</button>

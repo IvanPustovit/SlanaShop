@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import item from ".././db/item.json";
+import item from "../db/item.json";
 import {
   addToCart,
   plusAmountItem,

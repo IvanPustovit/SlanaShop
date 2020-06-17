@@ -1,18 +1,13 @@
-import React, { useState } from "react";
-import "./CartItem.css";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import {
-//   amount,
-//   plus,
-//   minus,
-//   inCartProduct,
-//   PlusMinusItem,
-// } from "../../redux/slice";
+
 import {
   plusAmountItem,
   minusAmountItem,
   deleteToCart,
 } from "../../module/action";
+
+import "./CartItem.css";
 
 const CartItem = ({
   img,
@@ -21,11 +16,9 @@ const CartItem = ({
   color,
   size,
   category,
-  id,
-  // amountInCart,
+
   index,
 }) => {
-  const [amount, setAmount] = useState(1);
   const stateCart = useSelector((state) => state.inCart);
 
   const dispatch = useDispatch();

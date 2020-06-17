@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 // import { inCartProduct } from "../../redux/slice";
 
 import "./CartList.css";
+import Axios from "axios";
+// import { fib } from "../../utils/axios/firebase";
 
 const CartList = (props) => {
   const [form, setForm] = useState([]);
@@ -22,6 +24,8 @@ const CartList = (props) => {
 
   const submitTitle = (e) => {
     e.preventDefault();
+    // const res = fib();
+    console.log(typeof res);
 
     console.log([...cartArr, form]);
   };

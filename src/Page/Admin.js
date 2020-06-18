@@ -4,23 +4,22 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   uploadImgToStorage,
   writeDataToFirebase,
-  deleteFromFirebase,
+  updateFromFirebase,
 } from "../utils/axios/firebase";
-import { storage } from "../firebaseConfig";
+import { storage, db } from "../firebaseConfig";
 
-import CardItem from "../Component/CardItem/CardItem";
+import AdminItem from "../Component/AdminPage/AdminItem";
 import FormImg from "../Component/AdminPage/FormImg";
 import FormItem from "../Component/AdminPage/FormItem";
 
 import "./ad.css";
-import AdminItem from "../Component/AdminPage/AdminItem";
 
 const formInitial = {
   img: "",
   alt: "",
   category: "",
   name: "",
-  size: [""],
+  size: [],
   info: "",
   sizeImg: "",
   styleImg: "",
@@ -78,19 +77,32 @@ const Admin = () => {
     const value = e.target.value;
     setForm({ ...form, [name]: value });
   };
+
   const handleFilesUpload = async (e) => {
     e.preventDefault();
-    dispatch(writeDataToFirebase("shop", form));
-    setForm(formInitial);
-    setFile(null);
+    if (form.id) {
+      dispatch(updateFromFirebase("shop", form.id, form));
+      setForm(formInitial);
+      setFile(null);
+    } else {
+      dispatch(writeDataToFirebase("shop", form));
+      setForm(formInitial);
+      setFile(null);
+    }
   };
 
   const onChangeFileInput = (e) => {
     handlerFiles(e);
   };
 
-  const deleteItem = (dbName, id) => {
-    dispatch(deleteFromFirebase(dbName, id));
+  const getItemFrom = async (dbName, dbId) => {
+    const item = db.collection(dbName).doc(dbId);
+    await item.get().then((doc) => {
+      setForm({ ...doc.data(), id: dbId });
+      setUrlPreview(doc.data().img);
+      console.log(form);
+    });
+    console.log(form);
   };
 
   return (
@@ -109,7 +121,7 @@ const Admin = () => {
         </div>
         <ul className="card-list_item">
           {listShop.map((prod) => (
-            <AdminItem {...prod} key={prod.id} />
+            <AdminItem {...prod} key={prod.id} getItemFrom={getItemFrom} />
           ))}
         </ul>
       </div>

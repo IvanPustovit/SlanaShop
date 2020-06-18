@@ -1,5 +1,6 @@
 .slider {
   grid-area: slider;
+  /* width: 100vh; */
 }
 
 .img-slide {

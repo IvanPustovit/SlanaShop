@@ -4,7 +4,8 @@ import Cart from "../Cart/Cart";
 import PhoneIcon from "@material-ui/icons/Phone";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import MailIcon from "@material-ui/icons/Mail";
-import { Link, NavLink } from "react-router-dom";
+// import { Link, NavLink, useHistory } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const Header = (props) => {
   const [logo, setLogo] = useState({
@@ -20,17 +21,25 @@ const Header = (props) => {
           <nav className="navigation-list">
             <ul className="navigation-page">
               <li>
-                <a
-                  href="#Shop"
+                <Link
+                  to="/#Shop"
+                  // isActive={() =>
+                  //   window.location.pathname + window.location.hash === "/#Shop"
+                  // }
+                >
+                  Магазин
+                </Link>
+                {/* <a
+                  href="/#Shop"
                   // isActive={() =>
                   //   window.location.pathname + window.location.hash === "/Shop"
                   // }
                 >
                   Магазин
-                </a>
+                </a> */}
               </li>
               <li>
-                <a href="#Deliver">Доставка та оплата</a>
+                <Link to="/#Deliver">Доставка та оплата</Link>
               </li>
               <li>
                 <Link to="/">
@@ -44,7 +53,7 @@ const Header = (props) => {
               </li>
 
               <li>
-                <a href="/#Contact">Контакти</a>
+                <Link to="/#Contact">Контакти</Link>
               </li>
             </ul>
             <ul className="navigation-icon">

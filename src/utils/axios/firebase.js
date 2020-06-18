@@ -1,5 +1,11 @@
 import { db, auth, storage } from "../../firebaseConfig";
-import { addToShop, getItems, setUser, deleteItem } from "../../module/action";
+import {
+  addToShop,
+  getItems,
+  setUser,
+  deleteItem,
+  updateItem,
+} from "../../module/action";
 
 export const readDataFromFirebase = (dbName) => async (dispatch) => {
   try {
@@ -24,8 +30,7 @@ export const writeDataToFirebase = (dbName, data) => async (dispatch) => {
 export const uploadImgToStorage = (dbName, files) => async (dispatch) => {
   try {
     const storageRef = storage.ref(`${dbName}/${files.name}`);
-    const result = await storageRef.put(files);
-    console.log(result);
+    await storageRef.put(files);
   } catch (error) {
     console.log("error", error);
   }
@@ -35,6 +40,17 @@ export const deleteFromFirebase = (dbName, docId) => async (dispatch) => {
   try {
     await db.collection(dbName).doc(docId).delete();
     dispatch(deleteItem(docId));
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+export const updateFromFirebase = (dbName, docId, data) => async (dispatch) => {
+  try {
+    const update = await db.collection(dbName).doc(docId);
+    update.update(data);
+    const item = { ...data };
+    dispatch(updateItem(item));
   } catch (error) {
     console.log("error", error);
   }

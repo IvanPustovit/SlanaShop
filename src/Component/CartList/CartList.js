@@ -55,6 +55,7 @@ const CartList = (props) => {
         </div>
         <div>
           <form
+            className="form-submit"
             // action="mailto:pustovit.for@gmail.com"
             method="submit"
             onSubmit={submitTitle}

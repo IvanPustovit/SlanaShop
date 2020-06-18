@@ -20,7 +20,7 @@ const Header = (props) => {
         <header>
           <nav className="navigation-list">
             <ul className="navigation-page">
-              <li>
+              <li className="navigation-page_link">
                 <Link
                   to="/#Shop"
                   // isActive={() =>
@@ -38,7 +38,7 @@ const Header = (props) => {
                   Магазин
                 </a> */}
               </li>
-              <li>
+              <li className="navigation-page_link">
                 <Link to="/#Deliver">Доставка та оплата</Link>
               </li>
               <li>
@@ -52,7 +52,7 @@ const Header = (props) => {
                 </Link>
               </li>
 
-              <li>
+              <li className="navigation-page_link">
                 <Link to="/#Contact">Контакти</Link>
               </li>
             </ul>

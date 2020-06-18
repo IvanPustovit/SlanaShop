@@ -1,6 +1,6 @@
 .cart-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 250px 250px 250px 250px;
 }
 
 input {
@@ -8,7 +8,33 @@ input {
   max-width: 70%;
 }
 
-form {
+.form-submit {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (max-width: 1090px) {
+  .cart-list {
+    grid-template-columns: 300px 300px 300px;
+  }
+  .card {
+  }
+}
+@media screen and (max-width: 768px) {
+  .cart-list {
+    grid-template-columns: 300px 300px;
+  }
+  .form-submit {
+    grid-template-columns: auto;
+    grid-gap: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .cart-list {
+    grid-template-columns: auto;
+  }
+  .form-submit {
+    grid-template-columns: auto;
+    grid-gap: 10px;
+  }
 }

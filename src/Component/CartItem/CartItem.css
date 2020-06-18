@@ -18,5 +18,6 @@
 
 .cart-color {
   display: inline;
-  margin-right: 10px;
+  /* margin-right: 10px; */
+  margin: 0;
 }

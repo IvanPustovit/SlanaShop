@@ -36,7 +36,7 @@ header {
 .navigation-icon {
   padding: 0;
   text-align: end;
-  /* text-align: end; */
+
   list-style: none;
   position: relative;
 }
@@ -48,4 +48,31 @@ header {
 
 .logo-img {
   max-width: 180px;
+}
+
+@media screen and (max-width: 950px) {
+  /* .navigation-page {
+    grid-template-columns: 150px 250px 180px 200px;
+  } */
+}
+@media screen and (max-width: 768px) {
+  .navigation-page_link {
+    display: none;
+  }
+  .navigation-page {
+    display: block;
+  }
+}
+@media screen and (max-width: 480px) {
+  .navigation-list {
+    column-gap: 40px;
+  }
+}
+@media screen and (max-width: 1140px) {
+  .navigation-icon {
+    justify-self: start;
+  }
+  .navigation-page {
+    grid-template-columns: 150px 250px 180px 150px;
+  }
 }

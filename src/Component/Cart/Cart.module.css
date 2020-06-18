@@ -120,3 +120,22 @@
 
   /* display: none; */
 }
+
+@media screen and (max-width: 1140px) {
+  .Bag {
+    margin-right: 0;
+    left: 200%;
+    bottom: 30%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+}
+@media screen and (max-width: 768px) {
+  .Bag {
+    left: 300%;
+    bottom: 20%;
+  }
+}
+@media screen and (max-width: 480px) {
+}

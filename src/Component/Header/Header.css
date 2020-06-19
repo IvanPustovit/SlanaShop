@@ -50,6 +50,10 @@ header {
   max-width: 180px;
 }
 
+.button-exit {
+  display: flex;
+}
+
 @media screen and (max-width: 950px) {
   /* .navigation-page {
     grid-template-columns: 150px 250px 180px 200px;

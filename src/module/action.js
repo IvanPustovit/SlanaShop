@@ -14,3 +14,7 @@ export const totalAmount = createAction("TOTAL_AMOUNT");
 export const totalPrice = createAction("TOTAL_PRICE");
 
 export const setUser = createAction("SET_USER");
+export const deleteUser = createAction("DELETE_USER");
+
+export const addContacts = createAction("ADD_CONTACTS");
+export const addOperatingMode = createAction("ADD_OPERATION_MODE")

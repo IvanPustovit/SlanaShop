@@ -1,17 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import Header from "../Header/Header";
-
-import CartList from "../CartList/CartList";
-// import CardItemModal from "../CardIteamModal/CardItemModal";
 import { Route, useHistory, Switch } from "react-router-dom";
-// import { Switch } from "@material-ui/core";
-import Home from "../../Page/Home";
-import Admin from "../../Page/Admin";
 import { useDispatch } from "react-redux";
 import { readDataFromFirebase } from "../../utils/axios/firebase";
-import Login from "../../Page/Login";
 import { auth } from "../../firebaseConfig";
 import { setUser } from "../../module/action";
+
+const admin = lazy(() => import("../../Page/Admin"));
+const home = lazy(() => import("../../Page/Home"));
+const CartList = lazy(() => import("../CartList/CartList"));
+const Login = lazy(() => import("../../Page/Login"));
 
 const HomePage = () => {
   const history = useHistory();
@@ -25,7 +23,7 @@ const HomePage = () => {
         dispatch(setUser(providerData[0].email));
         history.push("/admin");
       } else {
-        history.push("/login");
+        history.push("/") && history.push("/login");
       }
     });
   }, []);
@@ -34,12 +32,14 @@ const HomePage = () => {
     <div>
       {/* <CardItemModal /> */}
       <Header />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/cart" component={CartList} />
-        <Route path="/login" component={Login} />
-        <Route path="/admin" component={Admin} />
-      </Switch>
+      <Suspense fallback="...Loading">
+        <Switch>
+          <Route path="/" exact component={home} />
+          <Route path="/cart" component={CartList} />
+          <Route path="/login" component={Login} />
+          <Route path="/admin" component={admin} />
+        </Switch>
+      </Suspense>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import {
   setUser,
   deleteItem,
   updateItem,
+  addContacts,
 } from "../../module/action";
 
 export const readDataFromFirebase = (dbName) => async (dispatch) => {
@@ -62,6 +63,26 @@ export const loginUser = (user) => async (dispatch) => {
     const result = await auth.signInWithEmailAndPassword(email, password);
     const authUser = { email: result.user.email };
     dispatch(setUser(authUser));
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+export const addFooterContacts = (dbName, data) => async (dispatch) => {
+  try {
+    const result = await db.collection(dbName).add(data);
+    const item = { ...data, id: result.id };
+    dispatch(addContacts(item));
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+export const addFooterOpationMode = (dbName, data) => async (dispatch) => {
+  try {
+    const result = await db.collection(dbName).add(data);
+    const item = { ...data, id: result.id };
+    dispatch(addContacts(item));
   } catch (error) {
     console.log("error", error);
   }

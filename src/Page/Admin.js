@@ -6,11 +6,10 @@ import {
   writeDataToFirebase,
   updateFromFirebase,
 } from "../utils/axios/firebase";
-import { storage, db } from "../firebaseConfig";
+import { storage, db, auth } from "../firebaseConfig";
 
-import AdminItem from "../Component/AdminPage/AdminItem";
-import FormImg from "../Component/AdminPage/FormImg";
-import FormItem from "../Component/AdminPage/FormItem";
+import { deleteUser } from "../module/action";
+import AdminPage from "../Component/AdminPage/AdminPage";
 
 import "./ad.css";
 
@@ -31,7 +30,7 @@ const formInitial = {
   amountInCart: 0,
 };
 
-const Admin = () => {
+const Admin = (props) => {
   const dispatch = useDispatch();
   const listShop = useSelector((state) => state.listShop);
 
@@ -105,27 +104,25 @@ const Admin = () => {
     console.log(form);
   };
 
+  const userSignOut = () => {
+    auth.signOut();
+    dispatch(deleteUser());
+  };
+
   return (
-    <section>
-      <div className="container">
-        <div className="">
-          <FormImg
-            urlPreview={urlPreview}
-            onChangeFileInput={onChangeFileInput}
-          />
-          <FormItem
-            handleFilesUpload={handleFilesUpload}
-            form={form}
-            valueHandler={valueHandler}
-          />
-        </div>
-        <ul className="card-list_item">
-          {listShop.map((prod) => (
-            <AdminItem {...prod} key={prod.id} getItemFrom={getItemFrom} />
-          ))}
-        </ul>
-      </div>
-    </section>
+    <div className="admin">
+      <AdminPage
+        userSignOut={userSignOut}
+        onChangeFileInput={onChangeFileInput}
+        handleFilesUpload={handleFilesUpload}
+        urlPreview={urlPreview}
+        form={form}
+        valueHandler={valueHandler}
+        listShop={listShop}
+        getItemFrom={getItemFrom}
+        props={props}
+      />
+    </div>
   );
 };
 

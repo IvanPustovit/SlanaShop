@@ -1,6 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { setUser } from "./action";
+import { setUser, deleteUser } from "./action";
 
 export const userReducer = createReducer("", {
   [setUser]: (state, action) => action.payload,
+  [deleteUser]: (state, action) => null,
 });

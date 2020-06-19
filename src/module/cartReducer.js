@@ -1,11 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
-import item from "../db/item.json";
+
 import {
   addToCart,
   plusAmountItem,
   minusAmountItem,
-  totalAmount,
-  totalPrice,
   deleteToCart,
 } from "./action";
 const initialStateShop = [];

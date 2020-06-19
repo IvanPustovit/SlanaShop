@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteFromFirebase } from "../../utils/axios/firebase";
+import { deleteFromFirebase } from "../../../utils/axios/firebase";
 
 // import "./CardItem.css";
 

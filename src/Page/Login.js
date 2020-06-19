@@ -19,7 +19,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
+    <div className="login" id="login">
       <h1>Login</h1>
       <form onSubmit={onSubmit}>
         <input

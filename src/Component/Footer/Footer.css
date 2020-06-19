@@ -10,3 +10,7 @@
 
   /* width: 100vh; */
 }
+
+.login-link {
+  display: flex;
+}

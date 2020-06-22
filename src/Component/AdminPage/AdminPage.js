@@ -19,6 +19,11 @@ const AdminPage = ({
         listShop={listShop}
         form={form}
         props={props}
+        handleFilesUpload={handleFilesUpload}
+        urlPreview={urlPreview}
+        onChangeFileInput={onChangeFileInput}
+        valueHandler={valueHandler}
+        getItemFrom={getItemFrom}
       />
     </>
   );

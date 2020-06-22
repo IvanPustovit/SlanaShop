@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./Cart.module.css";
 
 import { useSelector } from "react-redux";
+import client from "../../utils/sendMail";
 
 const Cart = () => {
   const bag = [classes.Bag];

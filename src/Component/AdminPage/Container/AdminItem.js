@@ -6,7 +6,15 @@ import { deleteFromFirebase } from "../../../utils/axios/firebase";
 
 // import CardItemModal from "../CardIteamModal/CardItemModal";
 
-const AdminItem = ({ img, name, price, category, id, getItemFrom }) => {
+const AdminItem = ({
+  img,
+  name,
+  price,
+  category,
+  id,
+  species,
+  getItemFrom,
+}) => {
   const dispatch = useDispatch();
 
   const [modal, setModal] = useState(false);
@@ -29,6 +37,7 @@ const AdminItem = ({ img, name, price, category, id, getItemFrom }) => {
 
   const updateItem = () => {
     getItemFrom("shop", id);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -42,7 +51,9 @@ const AdminItem = ({ img, name, price, category, id, getItemFrom }) => {
       )} */}
       {/* <NavLink to="" > */}
       <img src={img} alt={name} className="foto-card" onClick={toggleModal} />
-      <p className="card-info">Футболка {category.toLowerCase()}</p>
+      <p className="card-info">
+        {species} {category.toLowerCase()}
+      </p>
       <p className="card-info_name">"{name.toUpperCase()}"</p>
       <p className="card-price">{+price}.00 грн</p>
       <button onClick={() => deleteItem("shop", id)}>Видалити</button>

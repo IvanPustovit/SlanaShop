@@ -10,7 +10,6 @@ const GoodsPage = ({
   handleFilesUpload,
   valueHandler,
   getItemFrom,
-  //   listShop,
   form,
   props,
 }) => {

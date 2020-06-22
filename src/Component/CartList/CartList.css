@@ -5,12 +5,14 @@
 
 input {
   font-size: 20px;
-  max-width: 70%;
+  /* max-width: 70%; */
 }
 
 .form-submit {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-columns: repeat(2, 1fr); */
+  margin: 0 auto;
+  width: 40vw;
 }
 
 @media screen and (max-width: 1090px) {

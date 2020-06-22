@@ -15,7 +15,6 @@ import "./ad.css";
 
 const formInitial = {
   img: "",
-  alt: "",
   category: "",
   name: "",
   size: [],
@@ -28,6 +27,7 @@ const formInitial = {
   amount: 1,
   id: "",
   amountInCart: 0,
+  species: "",
 };
 
 const Admin = (props) => {

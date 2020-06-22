@@ -6,7 +6,12 @@ import { useSelector, useDispatch } from "react-redux";
 
 import "./CartList.css";
 import Axios from "axios";
+// import client from "../../utils/sendMail";
 // import { fib } from "../../utils/axios/firebase";
+
+import emailjs from "emailjs-com";
+import { servID, templeteId, userId } from "../../utils/sendMail";
+// import { SMTPClient } from "emailjs";
 
 const CartList = (props) => {
   const [form, setForm] = useState([]);
@@ -16,6 +21,29 @@ const CartList = (props) => {
     return sum + el.amountInCart;
   }, 0);
 
+  const totalPrice = cartArr.reduce((sum, el) => {
+    return sum + el.amountInCart * el.price;
+  }, 0);
+
+  const arr = cartArr.map((el) => el);
+
+  const setting = {
+    name: form.nameUser,
+    email: form.email,
+    phone: form.tel,
+    comment: form.comment,
+    attachment: arr,
+  };
+  ////////////////////////////////////////////////
+
+  // const client = new SMTPClient({
+  //   user: "slanashop@slana.net.ua",
+  //   password: "SlanaAdmin01062020",
+  //   host: "mail.adm.tools",
+  //   port: 465,
+  //   ssl: true,
+  // });
+
   const inputHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -24,14 +52,23 @@ const CartList = (props) => {
 
   const submitTitle = (e) => {
     e.preventDefault();
-    // const res = fib();
-    console.log(typeof res);
+    console.log(setting);
 
-    console.log([...cartArr, form]);
+    const stringOrder = cartArr.map((el) => {
+      return (el.toString = () => {
+        return `NAME ${el.name}`;
+      });
+    });
+    console.log(stringOrder);
+    const order = JSON.stringify(stringOrder);
+    // client.send(setting, (err, setting) => {
+    //   console.log(err || setting);
+    // });
+
+    // emailjs
+    //   .send(servID, templeteId, setting, userId)
+    //   .then((res) => console.log(res));
   };
-  const totalPrice = cartArr.reduce((sum, el) => {
-    return sum + el.amountInCart * el.price;
-  }, 0);
 
   const bag = [classes.Bag];
   const cart = [classes.Cart];
@@ -56,24 +93,48 @@ const CartList = (props) => {
         <div>
           <form
             className="form-submit"
+            id="formSubmit"
             // action="mailto:pustovit.for@gmail.com"
             method="submit"
             onSubmit={submitTitle}
           >
             <input
+              type="text"
+              name="nameUser"
+              value={form.name}
+              id="nameUser"
+              placeholder="Як Вас звати?"
+              onChange={inputHandler}
+              required
+            />
+            <input
               type="email"
               name="email"
+              value={form.email}
               id="mail"
-              placeholder="Your Email"
+              placeholder="Ваш Email"
               onChange={inputHandler}
+              required
             />
             <input
               type="tel"
               name="tel"
+              value={form.tel}
               id="phone"
               onChange={inputHandler}
-              placeholder="Your Phone number"
+              placeholder="Ваш номер телефону"
+              required
             />
+            <textarea
+              form="formSubmit"
+              // cols="40"
+              type="text"
+              name="comment"
+              value={form.comment}
+              id="comment"
+              onChange={inputHandler}
+              placeholder="Ваш коментарій до замовлення"
+            ></textarea>
             <input
               // onSubmit={submitTitle}
               type="submit"

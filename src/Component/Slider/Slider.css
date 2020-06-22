@@ -2,6 +2,9 @@
   grid-area: slider;
   /* width: 100vh; */
 }
+.slider-container {
+  max-width: 93vw;
+}
 
 .img-slide {
   /* min-width: 300px; */
@@ -18,6 +21,17 @@
   text-align: -webkit-center;
 }
 
+.slick-arrow,
+.slick-prev {
+  display: none;
+  opacity: 0;
+}
+
+@media screen and (max-width: 950px) {
+  .slider-container {
+    display: none;
+  }
+}
 /* General styles */
 /* .sim-slider {
   position: relative;

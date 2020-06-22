@@ -15,9 +15,18 @@ const FormItem = ({ handleFilesUpload, valueHandler, form }) => {
         />
         <input
           type="text"
+          name="species"
+          id="species"
+          placeholder="Вид товару (футболка, рушник ...)"
+          value={form.species}
+          onChange={valueHandler}
+          required
+        />
+        <input
+          type="text"
           name="size"
           id="size"
-          placeholder="Розміри, вказуємо через кому"
+          placeholder="Розміри,(Футболки - вказуємо через кому, Рушник - дожинаХ(на)ширину)"
           value={form.size}
           onChange={valueHandler}
           required

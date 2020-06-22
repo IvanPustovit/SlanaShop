@@ -16,11 +16,15 @@
 }
 
 .card-price {
+  margin: 0 auto;
   color: rgb(42, 75, 165);
   font-size: 30px;
   font-weight: 900;
 }
 
-/* .card {
-  width: 230px;
-} */
+.card {
+  height: 100%;
+  display: grid;
+  align-content: space-between;
+  /* align-self: ; */
+}

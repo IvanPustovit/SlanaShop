@@ -1,0 +1,26 @@
+.aside-shop {
+  background-color: rgba(146, 11, 101, 0.5);
+
+  height: 100vh;
+}
+
+.filters {
+  font-size: 30px;
+  border: solid 2px blue;
+}
+.filters p {
+  margin: 0;
+  /* font-family: "Segoe UI; */
+}
+
+@media screen and (max-width: 768px) {
+  .filters {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .filters {
+    font-size: 15px;
+  }
+}

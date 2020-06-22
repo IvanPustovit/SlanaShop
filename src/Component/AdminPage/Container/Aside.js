@@ -7,7 +7,17 @@ const ContactPage = lazy(() => import("../ContactPage"));
 const activeStyle = {
   color: "black",
 };
-const Aside = ({ userSignOut, form, props }) => {
+const Aside = ({
+  userSignOut,
+  form,
+  props,
+  urlPreview,
+  onChangeFileInput,
+  handleFilesUpload,
+  valueHandler,
+  getItemFrom,
+  listShop,
+}) => {
   return (
     <>
       <section>
@@ -46,7 +56,16 @@ const Aside = ({ userSignOut, form, props }) => {
         <Switch>
           <Route
             path="/admin/goods"
-            render={(props) => <GoodsPage form={form} />}
+            render={(props) => (
+              <GoodsPage
+                form={form}
+                urlPreview={urlPreview}
+                onChangeFileInput={onChangeFileInput}
+                handleFilesUpload={handleFilesUpload}
+                valueHandler={valueHandler}
+                getItemFrom={getItemFrom}
+              />
+            )}
           />
           <Route path="/admin/contact" component={ContactPage} />
         </Switch>

@@ -12,61 +12,59 @@ const Sliders = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    //   adaptiveHeight: true,
+
+    // adaptiveHeight: true,
   };
   return (
-    <Slider {...settings}>
-      {/* <section class=""> */}
-      {/* <div class=""> */}
-      <div>
-        <h3 className="container">
-          <img
-            src="https://i.ibb.co/6D66vLR/sl1.png"
-            alt="screen"
-            className="img-slide"
-          />
-        </h3>
-      </div>
-      <div>
-        <h3 className="container">
-          <img
-            src="https://i.ibb.co/N1dfL2H/sl2.png"
-            alt="1"
-            className="img-slide"
-          />
-        </h3>
-      </div>
-      <div>
-        <h3 className="container">
-          <img
-            src="https://i.ibb.co/nf9jcbb/sl3.png"
-            alt="2"
-            className="img-slide"
-          />
-        </h3>
-      </div>
-      <div>
-        <h3 className="container">
-          <img
-            src="https://i.ibb.co/XCm9d4Z/sl4.png"
-            alt="N"
-            className="img-slide"
-          />
-        </h3>
-      </div>
-      <div>
-        <h3 className="container">
-          <img
-            src="https://i.ibb.co/kVZRdn1/sl5.png"
-            alt="N"
-            className="img-slide"
-          />
-        </h3>
-      </div>
-
-      {/* </div> */}
-      {/* </section> */}
-    </Slider>
+    <div className="slider-container">
+      <Slider {...settings}>
+        <div>
+          <h3 className="container">
+            <img
+              src="https://i.ibb.co/6D66vLR/sl1.png"
+              alt="screen"
+              className="img-slide"
+            />
+          </h3>
+        </div>
+        <div>
+          <h3 className="container">
+            <img
+              src="https://i.ibb.co/N1dfL2H/sl2.png"
+              alt="1"
+              className="img-slide"
+            />
+          </h3>
+        </div>
+        <div>
+          <h3 className="container">
+            <img
+              src="https://i.ibb.co/nf9jcbb/sl3.png"
+              alt="2"
+              className="img-slide"
+            />
+          </h3>
+        </div>
+        <div>
+          <h3 className="container">
+            <img
+              src="https://i.ibb.co/XCm9d4Z/sl4.png"
+              alt="N"
+              className="img-slide"
+            />
+          </h3>
+        </div>
+        <div>
+          <h3 className="container">
+            <img
+              src="https://i.ibb.co/kVZRdn1/sl5.png"
+              alt="N"
+              className="img-slide"
+            />
+          </h3>
+        </div>
+      </Slider>
+    </div>
   );
 };
 

@@ -21,7 +21,7 @@ const formInitial = {
   info: "",
   sizeImg: "",
   styleImg: "",
-  price: "",
+  price: null,
   MadeIn: "",
   article: "",
   amount: 1,
@@ -74,7 +74,7 @@ const Admin = (props) => {
   const valueHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setForm({ ...form, [name]: value });
+    setForm({ ...form, [name]: value, price: +value });
   };
 
   const handleFilesUpload = async (e) => {

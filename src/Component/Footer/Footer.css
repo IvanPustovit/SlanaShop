@@ -14,3 +14,18 @@
 .login-link {
   display: flex;
 }
+
+.contact-footer {
+  display: grid;
+}
+
+.contact-footer_item {
+  /* display: grid; */
+}
+
+.contact-item {
+  display: initial;
+  width: 50%;
+  margin: 0;
+  padding-right: 10px;
+}

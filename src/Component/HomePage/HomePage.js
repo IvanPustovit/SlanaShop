@@ -2,7 +2,10 @@ import React, { useEffect, lazy, Suspense } from "react";
 import Header from "../Header/Header";
 import { Route, useHistory, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { readDataFromFirebase } from "../../utils/axios/firebase";
+import {
+  readDataFromFirebase,
+  readDataFromFirebaseContacts,
+} from "../../utils/axios/firebase";
 import { auth } from "../../firebaseConfig";
 import { setUser } from "../../module/action";
 // import CardItemModal from "../CardIteamModal/CardItemModal";
@@ -31,6 +34,7 @@ const HomePage = (props) => {
         history.push(history.location.pathname);
       }
     });
+    dispatch(readDataFromFirebaseContacts("contactFooter"));
   }, []);
 
   return (

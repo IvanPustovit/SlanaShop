@@ -7,8 +7,12 @@ import MailIcon from "@material-ui/icons/Mail";
 import { HashLink as Link } from "react-router-hash-link";
 import { useLocation, NavLink } from "react-router-dom";
 import CalendarViewDay from "@material-ui/icons/CalendarViewDay";
+import { useSelector, useDispatch } from "react-redux";
+import { addToShop, addFilter, resetFilter } from "../../module/action";
 
 const Header = () => {
+  const product = useSelector((state) => state.listShop);
+  const dispatch = useDispatch();
   const [logo, setLogo] = useState({
     src: "https://i.ibb.co/YQNpyLL/logo.png",
     alt: "logo",
@@ -22,7 +26,26 @@ const Header = () => {
     console.log("False");
   };
 
-  // console.log(window.location.pathname + window.location.hash);
+  const filterShop = (e) => {
+    const value = e.target.name;
+    const filteredProduct = product.filter((el) => {
+      switch (value) {
+        case "Футболка":
+          return el.species === value;
+
+        case "Рушник":
+          return el.species === value;
+
+        default:
+          return el;
+      }
+    });
+    console.log(filteredProduct);
+    dispatch(addFilter(filteredProduct));
+  };
+
+  const resetFiltered = () => dispatch(resetFilter());
+
   return (
     // <section className="navigation">
     <div className={`navigation `}>
@@ -43,41 +66,24 @@ const Header = () => {
                 Каталог товарів{" "}
                 <ul className="submenu-catalog">
                   <li>
-                    <a href="#" className="">
+                    <a
+                      href="/#sort"
+                      className=""
+                      name="Футболка"
+                      onClick={filterShop}
+                    >
                       Футболки
                     </a>
                   </li>
                   <li>
-                    <a href="#">Рушники</a>
+                    <a href="/#sort" name="Рушник" onClick={filterShop}>
+                      Рушники
+                    </a>
                   </li>
                 </ul>
               </p>
-
-              {/* <Link
-                to="/#Shop"
-                // {{ pathname: "/#Shop", state: { from: location } }}
-              >
-                Магазин
-              </Link> */}
-
-              {/* <Link
-                to="/#Shop"
-                // {{ pathname: "/#Shop", state: { from: location } }}
-              >
-                Магазин
-              </Link> */}
-              {/* <a
-                  href="/#Shop"
-                  // isActive={() =>
-                  //   window.location.pathname + window.location.hash === "/Shop"
-                  // }
-                >
-                  Магазин
-                </a> */}
             </li>
-            {/* <li className="navigation-page_link">
-              <Link to="/#Deliver">Доставка та оплата</Link>
-            </li> */}
+
             <li>
               <Link to="/">
                 <img
@@ -85,25 +91,26 @@ const Header = () => {
                   alt="logo"
                   border="0"
                   className="logo-img"
+                  onClick={resetFiltered}
                 />
               </Link>
-            </li>
-
-            <li className="navigation-page_link navigation-page_link__contact">
-              <Link to="/#Contact">Контакти</Link>
             </li>
           </ul>
           <ul className="navigation-icon">
             <li>
-              <a className="phone" href="tel:">
-                slanashop@slana.net.ua
+              <a className="phone phone-position" href="tel:">
+                +38 097 218 71 40
               </a>
+
               <a className="icon-telephone" href="tel:">
                 <PhoneIcon />
               </a>
             </li>
             <li>
-              <a className="email" href="mailto:slanashop@slana.net.ua">
+              <a
+                className="email email-position"
+                href="mailto:slanashop@slana.net.ua"
+              >
                 slanashop@slana.net.ua
               </a>
               <a className="icon-email" href="mailto:slanashop@slana.net.ua">
@@ -111,7 +118,10 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <a className="facebook" href="mailto:slanashop@slana.net.ua">
+              <a
+                className="facebook facebook-position"
+                href="mailto:slanashop@slana.net.ua"
+              >
                 slanashop@slana.net.ua
               </a>
               <a className="icon-facebook" href="#">

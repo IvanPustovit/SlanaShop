@@ -11,9 +11,19 @@ const Footer = () => {
     <section className="footer" id="Contact">
       <footer className="container footer-info">
         <div className="">
-          <p>Контакти:</p>
-          <ul></ul>
-          <p>info</p>
+          <p className="contact-footer">Контакти:</p>
+          <div className="contact-footer_item">
+            {contact &&
+              contact.map((el) => (
+                <>
+                  <p className="contact-footer_tel contact-item">{el.tel}</p>
+                  <p className="contact-footer_name contact-item">{el.name}</p>
+                  <p className="contact-footer_address contact-item">
+                    {el.address}
+                  </p>
+                </>
+              ))}
+          </div>
         </div>
         <div>
           <p>Графік роботи:</p>

@@ -63,7 +63,7 @@ const FormItem = ({ handleFilesUpload, valueHandler, form }) => {
           name="price"
           id="price"
           placeholder="Ціна товару"
-          value={form.price}
+          value={Number(form.price)}
           onChange={valueHandler}
           required
         />

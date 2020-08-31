@@ -33,7 +33,7 @@ header {
 .navigation-page {
   list-style: none;
   display: grid;
-  grid-template-columns: 40% 30% 15%;
+  /* grid-template-columns: 40% 30% 15%; */
   align-items: center;
 }
 
@@ -75,8 +75,17 @@ header {
   color: darkblue;
   font-size: 25px;
   left: -280px;
-  top: -20px;
-  display: none;
+  top: -10px;
+  text-decoration: none;
+  /* display: none; */
+}
+
+.email-position {
+  top: 20px;
+}
+
+.facebook-position {
+  top: 50px;
 }
 
 .catalog {
@@ -139,6 +148,11 @@ header {
 }
 
 @media screen and (max-width: 950px) {
+  .phone,
+  .email,
+  .facebook {
+    display: none;
+  }
   /* .navigation-page {
     grid-template-columns: 150px 250px 180px 200px;
   } */

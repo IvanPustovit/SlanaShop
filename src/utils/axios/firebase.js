@@ -6,6 +6,7 @@ import {
   deleteItem,
   updateItem,
   addContacts,
+  getContacts,
 } from "../../module/action";
 
 export const readDataFromFirebase = (dbName) => async (dispatch) => {
@@ -73,6 +74,16 @@ export const addFooterContacts = (dbName, data) => async (dispatch) => {
     const result = await db.collection(dbName).add(data);
     const item = { ...data, id: result.id };
     dispatch(addContacts(item));
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+export const readDataFromFirebaseContacts = (dbName) => async (dispatch) => {
+  try {
+    const result = await db.collection(dbName).get();
+    const resp = result.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    dispatch(getContacts(resp));
   } catch (error) {
     console.log("error", error);
   }

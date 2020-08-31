@@ -5,10 +5,6 @@ const Item = (product) => {
   return (
     <div className="modal">
       <div className="modal-item container">
-        {/* <button className="close-btn" onClick={closeModal}>
-            Закрити
-          </button> */}
-
         <div className="">
           <img src={product.img} alt={product.name} className="img-modal" />
         </div>

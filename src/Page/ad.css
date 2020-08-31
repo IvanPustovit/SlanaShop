@@ -96,3 +96,9 @@
   height: 100vmax;
   margin-right: 5px;
 }
+
+.contact-list {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: start;
+}
